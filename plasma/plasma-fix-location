@@ -1,0 +1,16 @@
+as_root install -dvm 755 /usr/share/xsessions              &&
+cd /usr/share/xsessions/                                   &&
+[ -e plasma.desktop ]                                      ||
+as_root ln -sfv $KF5_PREFIX/share/xsessions/plasma.desktop &&
+as_root install -dvm 755 /usr/share/wayland-sessions       &&
+cd /usr/share/wayland-sessions/                            &&
+[ -e plasmawayland.desktop ]                               ||
+as_root ln -sfv $KF5_PREFIX/share/wayland-sessions/plasmawayland.desktop
+as_root install -dvm 755 /usr/share/xdg-desktop-portal     &&
+cd /usr/share/xdg-desktop-portal/                          &&
+[ -e kde-portals.conf ]                                    ||
+as_root ln -sfv $KF5_PREFIX/share/xdg-desktop-portal/kde-portals.conf
+as_root install -dvm 755 /usr/share/xdg-desktop-portal/portals &&
+cd /usr/share/xdg-desktop-portal/portals                       &&
+[ -e kde.portal ]                                              ||
+as_root ln -sfv $KF5_PREFIX/share/xdg-desktop-portal/portals/kde.portal
