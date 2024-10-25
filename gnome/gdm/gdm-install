@@ -1,0 +1,17 @@
+sed -e 's@systemd@elogind@'                                \
+    -e '/elogind/isession  required       pam_loginuid.so' \
+    -i data/pam-lfs/gdm-launch-environment.pam &&
+
+mkdir build &&
+cd    build &&
+
+meson setup ..                   \
+      --prefix=/usr              \
+      --buildtype=release        \
+      -D gdm-xsession=true       \
+      -D run-dir=/run/gdm        \
+      -D logind-provider=elogind \
+      -D systemd-journal=false   \
+      -D systemdsystemunitdir=no \
+      -D systemduserunitdir=no   &&
+ninja
