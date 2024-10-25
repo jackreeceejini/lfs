@@ -1,0 +1,21 @@
+cat > /etc/profile.d/i18n.sh << "EOF"
+# Begin /etc/profile.d/i18n.sh
+
+if [ -r /etc/locale.conf ]; then source /etc/locale.conf; fi
+
+if [ -n "$LANG" ];              then export LANG; fi
+if [ -n "$LC_TYPE" ];           then export LC_TYPE; fi
+if [ -n "$LC_NUMERIC" ];        then export LC_NUMERIC; fi
+if [ -n "$LC_TIME" ];           then export LC_TIME; fi
+if [ -n "$LC_COLLATE" ];        then export LC_COLLATE; fi
+if [ -n "$LC_MONETARY" ];       then export LC_MONETARY; fi
+if [ -n "$LC_MESSAGES" ];       then export LC_MESSAGES; fi
+if [ -n "$LC_PAPER" ];          then export LC_PAPER; fi
+if [ -n "$LC_NAME" ];           then export LC_NAME; fi
+if [ -n "$LC_ADDRESS" ];        then export LC_ADDRESS; fi
+if [ -n "$LC_TELEPHONE" ];      then export LC_TELEPHONE; fi
+if [ -n "$LC_MEASUREMENT" ];    then export LC_MEASUREMENT; fi
+if [ -n "$LC_IDENTIFICATION" ]; then export LC_IDENTIFICATION; fi
+
+# End /etc/profile.d/i18n.sh
+EOF
