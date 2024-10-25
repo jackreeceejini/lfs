@@ -1,0 +1,15 @@
+cat > /etc/pam.d/chpasswd << "EOF"
+# Begin /etc/pam.d/chpasswd
+
+# always allow root
+auth      sufficient  pam_rootok.so
+
+# include system auth and account settings
+auth      include     system-auth
+account   include     system-account
+password  include     system-password
+
+# End /etc/pam.d/chpasswd
+EOF
+
+sed -e s/chpasswd/newusers/ /etc/pam.d/chpasswd >/etc/pam.d/newusers
