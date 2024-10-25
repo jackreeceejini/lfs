@@ -1,0 +1,8 @@
+source /etc/sysconfig/console &&
+KEYMAP=${KEYMAP:-us}          &&
+
+gdbus call --system                                             \
+           --dest org.freedesktop.locale1                       \
+           --object-path /org/freedesktop/locale1               \
+           --method org.freedesktop.locale1.SetVConsoleKeyboard \
+           "$KEYMAP" "$KEYMAP_CORRECTIONS" true true
